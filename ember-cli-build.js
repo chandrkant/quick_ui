@@ -3,10 +3,32 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
+  // var bootstrapCssMap = pickFiles('bower_components/bootstrap/dist/css', {
+  //   srcDir: '/',
+  //   files: ['bootstrap.css.map'],
+  //   destDir: '/assets'
+  // });
+
+  // var faFonts = pickFiles('bower_components/font-awesome/fonts', {
+  //     srcDir: '/',
+  //     files: ['Font Awesome 5 Brands-Regular-400.otf','Font Awesome 5 Free-Regular-400.otf','Font Awesome 5 Free-Solid-900.otf','fontawesome-webfont.woff','fontawesome-webfont.woff2'],
+  //     destDir: '/fonts'
+  // });
+
+  // var jqueryImages= pickFiles('bower_components/jquery-ui/themes/base/images', {
+  //     srcDir: '/',
+  //     destDir: '/assets/images'
+  // });
   let app = new EmberApp(defaults, {
     // Add options here
+    name: require('./package.json').name,
+    minifyCSS: {
+      enabled: true,
+      options: {}
+    },
   });
-
+  app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
+  app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

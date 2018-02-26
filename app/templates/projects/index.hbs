@@ -1,0 +1,17 @@
+<h2 class="text-center text-success">Project List</h2>
+<table class="table">
+	<tr>
+		<th>Title</th>
+		<th>Created By</th>
+		<th>Status</th>
+	</tr>
+
+{{#each model as |project| }}
+	<tr>
+		<td>{{project.title}} </td>
+		<td>{{project.created_by}}</td>
+		<td>{{project.status}}</td>
+	</tr>
+{{/each}}
+</table>
+{{#link-to 'projects.new'}}New Project{{/link-to}}

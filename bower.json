@@ -1,0 +1,7 @@
+{
+  "name": "quick-start",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "fontawesome": "^5.0.6"
+  }
+}
