@@ -1,1 +1,4 @@
-{{outlet}}
+<p>Title : {{project.title}}</p>
+<p>Created By : {{project.created_by}}</p>
+{{#link-to 'projects.edit' project class='btn btn-primary'}}Edit{{/link-to}}
+

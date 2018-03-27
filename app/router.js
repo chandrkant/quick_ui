@@ -9,8 +9,8 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('projects', function() {
     this.route('new');
-    this.route('show');
-    this.route('edit');
+    this.route('show',{path: '/show/:id'});
+    this.route('edit',{path: '/edit/:id'});
   });
 
   this.route('tasks', function() {
@@ -18,6 +18,11 @@ Router.map(function() {
     this.route('show');
     this.route('edit');
   });
+
+  this.route('project', function() {
+    this.route('show');
+  });
+  this.route('login');
 });
 
 export default Router;
