@@ -1,8 +1,9 @@
 import DS from 'ember-data';
-
-export default DS.RESTAdapter.extend({
+import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+export default DS.RESTAdapter.extend(DataAdapterMixin,{
 	namespace: '',
 	host: "http://localhost:3030",
+	authorizer: 'authorizer:devise',
 	pathForType(){
 		return 'projects'
 	}
