@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="card card-container">
+    <form {{action "submit" on="submit"}}>
+    <label for="name">Name</label>
+      {{input value=user.user_name placeholder="enter name" class="form-control"}}
+      <label for="email">Email</label>
+      {{input value=user.email placeholder="enter email" class="form-control"}}
+      <label for="password">Password </label>
+      {{input value=user.password type="password" placeholder="enter password" class="form-control"}}
+      <label for="passwordConfirmation">Password Confirmation</label>
+      {{input value=user.passwordConfirmation type="password" placeholder="enter password again" class="form-control"}}
+      <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin">Sign Up</button>
+    </form>
+  </div>
+</div>
+{{#if errorMessage}}
+  {{errorMessage}}
+{{/if}}

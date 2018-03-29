@@ -5,8 +5,8 @@ export default Controller.extend({
 		saveProject(){
 			var self = this
 			var newProject = self.store.createRecord('project',self.get('model').serialize());
-			newProject.save().then(function(){
-
+			newProject.save().then(function(p){
+				self.transitionToRoute('projects.show', p)
 			});
 		}
 	}
