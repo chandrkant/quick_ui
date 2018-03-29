@@ -5,8 +5,8 @@ export default Controller.extend({
 		saveProject(){
 			var self = this
 			var newProject = self.store.createRecord('project',self.get('model').serialize());
-			newProject.save().then(function(project){
-        
+			newProject.save().then(function(){
+
 			});
 		}
 	}

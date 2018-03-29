@@ -23,6 +23,7 @@ Router.map(function() {
     this.route('show');
   });
   this.route('login');
+  this.route('dashboard');
 });
 
 export default Router;
