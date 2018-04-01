@@ -1,6 +1,8 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var pickFiles = require('broccoli-static-compiler');
+var mergeTrees = require('broccoli-merge-trees');
 
 module.exports = function(defaults) {
   // var bootstrapCssMap = pickFiles('bower_components/bootstrap/dist/css', {
@@ -9,11 +11,21 @@ module.exports = function(defaults) {
   //   destDir: '/assets'
   // });
 
-  // var faFonts = pickFiles('bower_components/font-awesome/fonts', {
-  //     srcDir: '/',
-  //     files: ['Font Awesome 5 Brands-Regular-400.otf','Font Awesome 5 Free-Regular-400.otf','Font Awesome 5 Free-Solid-900.otf','fontawesome-webfont.woff','fontawesome-webfont.woff2'],
-  //     destDir: '/fonts'
-  // });
+  var faFonts = pickFiles('bower_components/font-awesome/fonts', {
+      srcDir: '/',
+      files: ['fontawesome-webfont.eot','fontawesome-webfont.ttf','fontawesome-webfont.svg','fontawesome-webfont.woff'],
+      destDir: '/font/fa'
+  });
+  var alfaFonts = pickFiles('bower_components/font-awesome/fonts', {
+      srcDir: '/',
+      files: ['fontawesome-webfont.eot','fontawesome-webfont.ttf','fontawesome-webfont.svg','fontawesome-webfont.woff'],
+      destDir: '/fonts'
+  });
+  var alFonts = pickFiles('app/styles/fonts', {
+      srcDir: '/',
+      include: ['*.woff', '*.ttf', '*.woff2'],
+      destDir: '/font/roboto'
+  });
 
   // var jqueryImages= pickFiles('bower_components/jquery-ui/themes/base/images', {
   //     srcDir: '/',
@@ -29,6 +41,7 @@ module.exports = function(defaults) {
   });
   app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
   app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
+  app.import('bower_components/font-awesome/css/font-awesome.min.css');
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
@@ -42,5 +55,5 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree();
+  return app.toTree([faFonts,alFonts,alfaFonts]);
 };

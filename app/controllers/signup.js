@@ -1,11 +1,11 @@
 import Controller from '@ember/controller';
+import Ember from 'ember';
 const { service } = Ember.inject;
 export default Controller.extend({
   session: service('session'),
   errorMessage: null,
   actions: {
     save(user){
-      debugger
       let newUser = user;
       newUser.save().catch((error) => {
         this.set('errorMessage', error)

@@ -1,7 +1,6 @@
 import Controller from '@ember/controller';
-const { service } = Ember.inject;
+//const { service } = Ember.inject;
 export default Controller.extend({
-	currentUser: service('current-user'),
 	actions: {
 		saveProject(){
 			var self = this

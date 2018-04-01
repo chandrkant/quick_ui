@@ -1,19 +1,21 @@
-<h2 class="text-center text-success">Project List</h2>
-<table class="table table-striped table-dark">
-	<tr>
-		<th scope="col">Title</th>
-		<th scope="col">Created By</th>
-		<th scope="col">Status</th>
-		<th scope="col">Actions</th>
-	</tr>
+<div class="project-index">
+	<h2 class="text-center text-success">Project List</h2>
+	<table class="table table-striped">
+		<tr>
+			<th scope="col">Name</th>
+			<th scope="col">Desc</th>
+			<th scope="col">Status</th>
+			<th scope="col">Actions</th>
+		</tr>
 
-{{#each model as |project| }}
-	<tr>
-		<td>{{#link-to 'projects.show' project}} {{project.title}} {{/link-to}}</td>
-		<td>{{project.created_by}}</td>
-		<td>{{project.status}}</td>
-		<td><button {{action 'doDelete' project}} class='btn btn-danger'>Delete</button> {{#link-to 'projects.show' project class='btn btn-info'}}Show{{/link-to}} {{#link-to 'projects.edit' project class='btn btn-primary'}}Edit{{/link-to}}</td>
-	</tr>
-{{/each}}
-</table>
-{{#link-to 'projects.new'}}New Project{{/link-to}}
+	{{#each model as |project| }}
+		<tr>
+			<td>{{#link-to 'projects.show' project}} {{project.name}} {{/link-to}}</td>
+			<td>{{project.desc}}</td>
+			<td>{{project.status}}</td>
+			<td><button {{action 'doDelete' project}} class='btn btn-danger'>Delete</button> {{#link-to 'projects.show' project class='btn btn-info'}}Show{{/link-to}} {{#link-to 'projects.edit' project class='btn btn-primary'}}Edit{{/link-to}}</td>
+		</tr>
+	{{/each}}
+	</table>
+	{{#link-to 'projects.new'}}New Project{{/link-to}}
+</div>

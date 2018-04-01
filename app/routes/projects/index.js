@@ -5,6 +5,7 @@ const { service } = Ember.inject;
 
 export default Route.extend(AuthenticatedRouteMixin,{
 	session: service('session'),
+	modelName: 'project',
 	model(){
 		return this.get('store').findAll('project');
 	},
